@@ -52,6 +52,7 @@
             class="btn"
             >Connect
             <img
+              class="chevron--right"
               src="img/chevron--right.svg"
               alt="chevron--right icon"
           /></a>
@@ -59,10 +60,10 @@
       </section>
 
       <!-- Section #2 -->
-      <section class="section">
+      <section class="section about">
         <div class="container">
           <h2 class="h2 text-accent">About</h2>
-          <p class="content">
+          <p class="content x-space">
             Lorem ipsum dolor sit amet, consectet adipiscing elit, sed do
             eiusmod tempor incididunt ut labore dolore magna sed do amet.
           </p>
@@ -76,7 +77,7 @@
       </section>
 
       <!-- Section #3 -->
-      <section class="section blog-bg">
+      <section class="blog-bg">
         <div class="container">
           <header>
             <h2 class="h2 text-accent">Blog</h2>
@@ -125,7 +126,7 @@
       </section>
 
       <!-- Section #4 -->
-      <section class="section">
+      <section class="">
         <div class="container">
           <h2 class="h2 text-accent">Inbox</h2>
           <p class="h2">Knowledge letters</p>
@@ -138,27 +139,41 @@
           </div>
 
           <form>
-            <label for="name">Name</label><br />
-            <input
-              type="text"
-              id="name"
-              name="name"
-            /><br />
-            <label for="email">Email</label><br />
-            <input
-              type="email"
-              id="email"
-              name="email"
-            /><br />
-            <div class="cta">
-              <a
-                href="#"
-                class="btn cta"
-                >Subscribe
-                <img
-                  src="img/chevron--right.svg"
-                  alt="chevron--right icon"
-              /></a>
+            <div class="call-to-action">
+              <div class="flex-item">
+                <label for="fname">Name</label><br />
+                <input
+                  class="opacity"
+                  type="text"
+                  id="fname"
+                  name="fname"
+                  placeholder="Your Name"
+                />
+              </div>
+              <div class="flex-item">
+                <label for="email">Email</label> <br />
+                <input
+                  class="opacity"
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="example@domain.com"
+                />
+              </div>
+              <button
+                class="btn"
+                type="submit"
+              >
+                <a
+                  href="#"
+                  class="btn"
+                  >Subscribe
+                  <img
+                    class="chevron--right"
+                    src="img/chevron--right.svg"
+                    alt="chevron--right icon"
+                /></a>
+              </button>
             </div>
           </form>
         </div>
@@ -166,50 +181,42 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="primary-footer">
       <div class="container">
-        <hr />
+        <div class="primary-footer__inner split">
+          <a
+            href="index.html"
+            aria-label="acme home page"
+            ><img
+              src="img/logo.svg"
+              alt="site logo"
+              class="logo"
+          /></a>
 
-        <div class="flex">
-          <div class="flow-content">
-            <a href="#"
-              ><img
-                src="../1_start_here/img/logo.svg"
-                alt="logo"
-            /></a>
-          </div>
-          <div class="flow-content">
-            <ul class="">
-              <li>Map</li>
-              <li>Blog</li>
-              <li>Privacy</li>
-            </ul>
-          </div>
+          <div class="footer-nav">
+            <dl class="flow-content">
+              <dt class="text-accent">Map</dt>
+              <dd><a href="#">Blog</a></dd>
+              <dd><a href="#">Privacy</a></dd>
+            </dl>
 
-          <div class="flow-content">
-            <ul class="">
-              <li>Resources</li>
-              <li>Courses</li>
-              <li>Hacks</li>
-              <li>Free stuff</li>
-            </ul>
+            <dl class="flow-content">
+              <dt class="text-accent">Resources</dt>
+              <dd><a href="#">Courses</a></dd>
+              <dd><a href="#">Hacks</a></dd>
+              <dd><a href="#">Free stuff</a></dd>
+            </dl>
           </div>
         </div>
 
-        <hr />
-
-        <div class="">
-          <div class="">
-            <p>© 2020 acme. All rights reserved</p>
-          </div>
-          <div class="">
-            <ul class="social-icons">
-              <li>Yt</li>
-              <li>Tw</li>
-              <li>Fb</li>
-              <li>Li</li>
-            </ul>
-          </div>
+        <div class="split">
+          <p class="copyright">© 2020 acme. All rights reserved</p>
+          <ul class="footer-social">
+            <li><a href="#">Yt</a></li>
+            <li><a href="#">Tw</a></li>
+            <li><a href="#">Fb</a></li>
+            <li><a href="#">Li</a></li>
+          </ul>
         </div>
       </div>
     </footer>
