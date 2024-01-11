@@ -1,6 +1,6 @@
 :root {
-  --ff-sans: "IBM Plex Sans", sans-serif;
-  --ff-serif: "IBM Plex Serif", serif;
+  --ff-sans: 'IBM Plex Sans', sans-serif;
+  --ff-serif: 'IBM Plex Serif', serif;
 
   /* small screen font-sizes */
   --fs-200: 0.75rem;
@@ -26,6 +26,10 @@
   --clr-primary-400: #8ea8da;
 
   --br: 1rem;
+  --border: 5px solid red;
+  --box-shadow: 0 0.25em 1.5em rgba(0, 0, 0, 0.15);
+
+  --spacer: 1rem;
 }
 
 @media (min-width: 40em) {
@@ -155,7 +159,7 @@ a:focus {
 }
 
 .btn::after {
-  content: "\203A";
+  content: '\203A';
   margin-left: 1em;
   font-weight: var(--fw-300);
 }
@@ -219,8 +223,43 @@ section {
   border-radius: var(--br);
   padding: 2rem;
   background-color: var(--clr-primary-400);
+  background-size: cover;
   min-height: 50vh;
+  display: flex;
+  flex-direction: column;
 }
+
+/* NEWLY ADDED - BE SURE TO GO OVER */
+
+.primary-header .container {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.primary-header .container > * {
+  max-width: 12ch;
+}
+
+.page-home .primary-header {
+  background-image: url(img/hero.jpg);
+  background-position: center center;
+}
+
+.page-blog .primary-header {
+  background-image: url(img/blog.jpg);
+  background-position: left center;
+}
+
+/* 4 properties were added
+
+.primary-header {
+  background-color: var(--clr-primary-400);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+} 
+*/
 
 .primary-nav {
   position: fixed;
@@ -271,6 +310,32 @@ section {
   .primary-nav li {
     margin-left: 2em;
   }
+}
+
+/* NEWLY ADDED - BE SURE TO GO OVER */
+
+.secondary-navigation {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.secondary-navigation > .btn:last-child {
+  margin-left: auto;
+}
+
+.categories {
+  margin: 0;
+  display: flex;
+  gap: var(--spacer);
+}
+
+.categories button {
+  cursor: pointer;
+  font-size: var(--fs-200);
+  text-transform: uppercase;
+  background: transparent;
+  border: 0;
 }
 
 .article-preview h3 {
@@ -377,4 +442,71 @@ footer {
 
 .intro {
   --flow-spacer: 2em;
+}
+
+/* blog page styles */
+
+.article-grid {
+  display: grid;
+  gap: 3em 2em; /* adds 3em top/bottom and 2em left/right spacing. */
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.article-grid > * {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 30em) {
+  /* accept for the first child, at 30em width, all specified grid-items will span 3 columns, which then places them side by side. */
+
+  .article-grid > *:not(:first-child) {
+    grid-column: span 3;
+  }
+}
+
+@media (min-width: 40em) {
+  .article-grid > *:first-child {
+    /* this will make the first article span across all columns, left to right. Even if you edit the total amount of columns, it will still take up the column cells. */
+
+    grid-column: 1 / -1;
+    /* grid-column: span 2; */
+  }
+
+  .article-grid > .article-preview:first-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr min-content 1fr;
+    gap: 1em 2em; /* ensures it's aligned properly w/ the content below. */
+  }
+
+  .article-grid > .article-preview:first-child img {
+    grid-row: span 3;
+    height: 17.5rem;
+  }
+
+  .article-grid > .article-preview:first-child h3 {
+    margin-top: auto;
+  }
+
+  /* .article-grid > .article-preview:first-child .info {
+    margin-bottom: auto;
+  } */
+
+  /* we switched over from article:nth-child(...) to > *:nth-child(...), so that we would have the plug n play functionality and have the option to add various elements to the grid without having to adjust any of the previous applied styling. */
+
+  .article-grid > *:nth-child(2),
+  .article-grid > *:nth-child(3) {
+    grid-column: span 3;
+  }
+
+  .article-grid > *:nth-child(4),
+  .article-grid > *:nth-child(5),
+  .article-grid > *:nth-child(6) {
+    grid-column: span 2;
+  }
+
+  .article-grid > *:nth-child(7),
+  .article-grid > *:nth-child(8) {
+    grid-column: span 3;
+  }
 }
