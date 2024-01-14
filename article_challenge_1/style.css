@@ -1,6 +1,6 @@
 :root {
-  --ff-sans: "IBM Plex Sans", sans-serif;
-  --ff-serif: "IBM Plex Serif", serif;
+  --ff-sans: 'IBM Plex Sans', sans-serif;
+  --ff-serif: 'IBM Plex Serif', serif;
 
   /* small screen font-sizes */
   --fs-200: 0.75rem;
@@ -155,7 +155,7 @@ a:focus {
 }
 
 .btn::after {
-  content: "\203A";
+  content: '\203A';
   margin-left: 1em;
   font-weight: var(--fw-300);
 }
@@ -254,7 +254,7 @@ section {
 }
 
 .page-article .primary-header::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   bottom: 0;
@@ -508,5 +508,19 @@ footer {
 .article-full {
   --flow-spacer: 2em;
   max-width: 40rem;
-  margin: 0 auto;
+  margin-inline: auto;
+  /* I removed the property below because it was interferring with the .xl-space class applied to the article tag. The previous margin of 0 superseded the xl-space class properties.  */
+  /* margin: 0 auto; */
 }
+
+/*
+.article-full {
+  --flow-spacer: 2em;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  
+ This setup will resolved the issue we face with collasping margins. I'm not sure why the margin-inline: autro; wasn't brought up because I didn't encounter any issues taking this route. Another option was to add !important to the .xl-space class. 
+  
+} 
+*/

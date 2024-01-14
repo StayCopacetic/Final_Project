@@ -1,6 +1,6 @@
 :root {
-  --ff-sans: "IBM Plex Sans", sans-serif;
-  --ff-serif: "IBM Plex Serif", serif;
+  --ff-sans: 'IBM Plex Sans', sans-serif;
+  --ff-serif: 'IBM Plex Serif', serif;
 
   /* small screen font-sizes */
   --fs-200: 0.75rem;
@@ -133,13 +133,20 @@ a:focus {
   font-size: var(--fs-600);
 }
 
+.article-full h3,
 .section-title {
   font-size: var(--fs-600);
   color: var(--clr-neutral-400);
 }
 
+.article-full h3 + p,
 .section-subtitle {
   font-size: var(--fs-600);
+}
+
+.article-full h3 + p {
+  font-family: var(--ff-serif);
+  margin-top: 0;
 }
 
 .btn {
@@ -155,7 +162,7 @@ a:focus {
 }
 
 .btn::after {
-  content: "\203A";
+  content: '\203A';
   margin-left: 1em;
   font-weight: var(--fw-300);
 }
@@ -254,7 +261,7 @@ section {
 }
 
 .page-article .primary-header::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   bottom: 0;
@@ -341,6 +348,31 @@ section {
   text-transform: uppercase;
   background: transparent;
   border: 0;
+}
+
+.article-preview {
+  position: relative;
+  z-index: 0;
+}
+
+.article-preview a {
+  display: block;
+  text-decoration: none;
+  font-size: var(--fs-400);
+  font-weight: var(--fw-300);
+}
+
+.article-preview a::before {
+  --offset: -1em;
+  content: '';
+  position: absolute;
+  top: var(--offset);
+  bottom: var(--offset);
+  left: var(--offset);
+  right: var(--offset);
+  background: pink;
+  z-index: -1;
+  border-radius: var(--br);
 }
 
 .article-preview h3 {
@@ -511,3 +543,25 @@ footer {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* 
+
+.article-full h3,
+.section-title {
+  font-size: var(--fs-600);
+  color: var(--clr-neutral-400);
+}
+
+.article-full h3 + p,
+.section-subtitle {
+  font-size: var(--fs-600);
+}
+
+The code below works because it has a higher specificity than the .flow-content > * + * { margin-top: ..., } class/property.
+
+.article-full h3 + p {
+  font-family: var(--ff-serif);
+  margin-top: 0;
+}
+
+*/
